@@ -1,0 +1,19 @@
+@keyframes up {
+  from {
+    transform: translateY(100vh);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes down {
+  from {
+    transform: translateY(0vh);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
+}

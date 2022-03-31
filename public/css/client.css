@@ -1,0 +1,289 @@
+.support_container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.support_button {
+  width: 200px;
+  height: 70px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+
+  font-size: 20px;
+  color: #fff;
+  background-color: #5a5f68;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  transition: .3s;
+}
+
+.support_button:hover {
+  color: #eee;
+  background-color: #34373b;
+}
+
+.iniciate_support {
+  position: absolute;
+  min-width: 330px;
+
+  display: none;
+
+  border-radius: 15px;
+
+  animation: up .7s;
+  transition: .2s;
+  background-color: #ccc;
+}
+
+.chat_support_hide {
+  animation: down .3s;
+  animation-fill-mode: forwards;
+}
+
+.iniciate_support_header {
+  padding: 0 35px 0 35px;
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 15px 15px 0 0;
+
+  font-size: 20px;
+
+  background-color: #5a5f68;
+}
+
+.iniciate_support_header span {
+  color: #fff;
+}
+
+.iniciate_support_header .close_window i {
+  color: #fff;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.iniciate_support_header .close_window i:hover {
+  color: #FF6B6B;
+}
+
+.iniciate_support_body {
+  position: relative;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iniciate_support_body .email_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iniciate_support_body .email_area span {
+  margin-bottom: 10px;
+}
+
+.iniciate_support_body .email_area input {
+  padding: 10px;
+
+  width: 280px;
+  height: 47px;
+
+  font-family: "Poppins";
+  text-align: center;
+  color: #fff;
+
+  background-color: #5a5f68;
+
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+}
+
+.iniciate_support_body .text_help {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.iniciate_support_body .text_help span {
+  padding: 15px 0 10px 0;
+}
+
+.iniciate_support_body .text_help textarea {
+  padding: 15px 25px;
+
+  width: 280px;
+  height: 200px;
+
+  font-family: "Poppins";
+  color: #fff;
+
+  background-color: #5a5f68;
+
+  border-radius: 10px;
+
+  resize: none;
+  outline: none;
+}
+
+.iniciate_support_body .buttons button {
+  margin: 5px;
+  padding: 13px 24px;
+
+  font-family: "Poppins";
+  color: #fff;
+
+  cursor: pointer;
+  border: 0;
+
+  outline: none;
+  border-radius: 7px;
+  transition: .2s;
+}
+
+.iniciate_support_body .buttons button.continue {
+  background-color: #6BCB77;
+}
+
+.iniciate_support_body .buttons button.cancel {
+  background-color: #FF6B6B;
+}
+
+.iniciate_support_body .buttons button.continue:hover {
+  background-color: #4c9155;
+}
+
+.iniciate_support_body .buttons button.cancel:hover {
+  background-color: #ce5757;
+}
+
+.in_support {
+  position: absolute;
+  width: 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+
+  animation: up .7s;
+  transition: .2s;
+}
+
+.chat {
+  display: none;
+}
+
+.in_support .in_support_header {
+  padding: 0 35px 0 35px;
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 15px 15px 0 0;
+
+  font-size: 20px;
+
+  background-color: #5a5f68;
+}
+
+.in_support .in_support_header span {
+  color: #fff;
+}
+
+.in_support_header .close_window i {
+  color: #fff;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.in_support_header .close_window i:hover {
+  color: #FF6B6B;
+}
+
+.in_support .in_support_body {
+  padding: 12px 12px 0 30px;
+
+  width: 100%;
+  max-height: 450px;
+  min-height: 220px;
+  ;
+
+  background-color: #ccc;
+
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-end; */
+}
+
+.in_support .in_support_footer {
+  padding: 0 35px 0 35px;
+
+  position: relative;
+
+  width: 100%;
+  height: 60px;
+
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 0 0 15px 15px;
+
+  font-size: 20px;
+
+  background-color: #5a5f68;
+}
+
+.in_support .in_support_footer input {
+  padding: 10px;
+
+  width: 240px;
+  height: 47px;
+
+  font-family: "Poppins";
+  color: #fff;
+
+  background-color: #5a5f68;
+
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+}
+
+.in_support .in_support_footer .send_message i {
+  color: #fff;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.in_support .in_support_footer .send_message i:hover {
+  color: #6BCB77;
+}

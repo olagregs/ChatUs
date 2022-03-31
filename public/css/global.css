@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Poppins";
+
+  width: 100vw;
+  height: 100vh;
+  background-color: #777;
+
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #222;
+}
+
+::-webkit-input-placeholder {
+  color: #aaa;
+}
