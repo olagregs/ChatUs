@@ -68,19 +68,21 @@
 
     <div class="in_support_body">
       <script id="client_template" type="text/template">
-      <div class="wrapper">
-        <div class="client">
-          <span class="name">{{email}}</span>
-          <span class="client_message">{{client_message}}</span>
+        <div class="wrapper"> 
+          <div class="client">
+            <span class="name">{{email}}</span>
+            <span class="client_message">{{client_message}}</span>
+            <span class="client_date">{{client_date}}</span>
+          </div>
         </div>
-      </div>
       </script>
 
       <script id="admin_template" type="text/template">
-      <div class="admin">
-        <span class="admin_name">Atendente</span>
-        <span class="admin_message">{{admin_message}}</span>
-      </div>
+        <div class="admin">
+          <span class="admin_name">Atendente</span>
+          <span class="admin_message">{{admin_message}}</span>
+          <span class="admin_date">{{admin_date}}</span>
+        </div>
       </script>
 
       <div id="messages" class="chat_messages"></div>

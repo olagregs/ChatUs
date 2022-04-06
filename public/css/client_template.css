@@ -20,7 +20,7 @@
 }
 
 .client .name {
-  padding: 15px 0 17px;
+  padding: 10px 0 15px;
 
   color: #194063;
   font-weight: 800;
@@ -29,11 +29,15 @@
 }
 
 .client .client_message {
-  margin: 5px 0px 0 0;
-  padding: 0 0 15px 0;
-
   color: #fff;
   font-size: 14px;
   text-align: end;
   line-height: 20px;
+}
+
+.client .client_date {
+  padding: 15px 0 10px;
+
+  font-weight: 800;
+  font-size: 13px;
 }

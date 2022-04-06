@@ -14,7 +14,7 @@
 }
 
 .admin .admin_name {
-  padding: 15px 0 17px;
+  padding: 10px 0 15px;
 
   color: #56135c;
   font-weight: 800;
@@ -22,10 +22,14 @@
 }
 
 .admin .admin_message {
-  margin: 5px 0px 0 0;
-  padding: 0 0 15px 0;
-
   color: #fff;
   font-size: 14px;
   line-height: 20px;
+}
+
+.admin .admin_date {
+  padding: 15px 0 10px;
+
+  font-weight: 800;
+  font-size: 13px;
 }
