@@ -26,6 +26,10 @@ app.get("/client", (request, response) => {
   return response.render("html/client.html");
 });
 
+app.get("/admin", (request, response) => {
+  return response.render("html/admin.html");
+});
+
 app.use(routes);
 
 export { http, io }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+  <link rel="stylesheet" href="../css/animation.css" />
+  <link rel="stylesheet" href="../css/admin_template.css" />
+  <link rel="icon" href="../images/icon.PNG" />
+</head>
+<title>ChatUs - Admin</title>
+</head>
+
+<body>
+  <div class="users_wrapper">
+    <div class="users_wrapper_header">
+      <span>Atendimentos</span>
+    </div>
+
+    <div class="users_wrapper_body">
+      <div id="list_users">
+
+      </div>
+    </div>
+  </div>
+
+  <script id="connection_template" type="text/template">
+    <div id="user{{id}}">
+      <span class="email">Email: {{email}}</span>
+      <button class="connect" onclick="call('{{id}}')">Entrar em atendimento</button>
+    </div>
+  </script>
+
+  <script id="chat_box_template" type="text/template">
+    <div class="chat_template" id="chat_template">
+      <div class="chat_template_header">
+        <span>Em atendimento ~ {{email}}</span>
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+
+      <div class="chat_template_body" id="allMessages{{id}}"></div>
+
+      <div class="chat_template_footer">
+        <input type="text" id="send_message_{{admin_id}}" placeholder="Digite sua mensagem..." />
+        <button id="send_message" onclick="sendMessage('{{id}}')">Enviar</button>
+      </div>
+    </div>
+  </script>
+</body>
+
+<script src=" https://kit.fontawesome.com/50c3adfcb8.js" crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
+<script src="https://unpkg.com/mustache@latest"></script>
+<script src="../js/client.js"></script>
+
+</html>
