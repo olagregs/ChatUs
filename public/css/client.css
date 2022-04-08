@@ -1,3 +1,20 @@
+body {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  font-family: "Poppins";
+
+  align-items: center;
+  overflow: hidden;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #777;
+}
+
 .support_container {
   position: absolute;
   display: flex;

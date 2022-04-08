@@ -11,6 +11,8 @@
   background-color: #c75fff;
 
   border-radius: 12px;
+
+  overflow-y: scroll;
 }
 
 .admin .admin_name {
@@ -35,8 +37,9 @@
 }
 
 .chat_template {
-  /* position: absolute; */
-  width: 360px;
+  margin: 30px;
+
+  width: 650px;
 
   display: flex;
   flex-direction: column;

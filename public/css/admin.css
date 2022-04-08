@@ -1,5 +1,48 @@
-.users_wrapper {
+iframe {
   position: absolute;
+}
+
+body {
+  position: relative;
+
+  font-family: "Poppins";
+
+  display: flex;
+
+  overflow-x: hidden;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #777;
+}
+
+.wrapper_users {
+  position: fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 35%;
+  height: 100%;
+}
+
+.wrapper_chats {
+  position: relative;
+
+  width: 65%;
+
+  left: 35%;
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.users_wrapper {
+  position: relative;
+
   width: 360px;
 
   display: flex;
@@ -59,7 +102,7 @@
   background-color: #ccc;
 }
 
-.users_wrapper .users_wrapper_body .user {
+.user {
   margin: 10px;
   padding: 10px 15px;
 
@@ -76,12 +119,12 @@
   align-items: center;
 }
 
-.users_wrapper .users_wrapper_body .user .email {
+.email {
   margin-bottom: 10px;
   font-size: 16px;
 }
 
-.users_wrapper .users_wrapper_body .user button {
+button {
   margin: 5px;
   padding: 7px 12px;
 
@@ -99,6 +142,6 @@
   transition: .2s;
 }
 
-.users_wrapper .users_wrapper_body .user button:hover {
+button:hover {
   background-color: #9237c4;
 }
