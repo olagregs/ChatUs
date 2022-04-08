@@ -9,6 +9,7 @@ import { CreateConnectionsController } from './src/controller/CreateConnectionsC
 import { ListUsersController } from './src/controller/ListUsersController';
 import { UpdateSocketIdController } from './src/controller/UpdateSocketIdController';
 import { FindConnectionsController } from './src/controller/FindConnectionsController';
+import { UpdateAdminIdController } from './src/controller/UpdateAdminIdController';
 
 const routes = Router();
 
@@ -21,6 +22,7 @@ const createConnectionsController = new CreateConnectionsController();
 const listUsersController = new ListUsersController();
 const updateSocketIdController = new UpdateSocketIdController();
 const findConnectionsController = new FindConnectionsController();
+const updateAdminIdController = new UpdateAdminIdController();
 
 routes.post("/users", createUsersController.execute);
 routes.get("/users", listUsersController.execute);
@@ -34,5 +36,6 @@ routes.get("/settings/:user", listSettingsController.execute);
 routes.post("/connections", createConnectionsController.execute);
 routes.patch("/connections", updateSocketIdController.execute);
 routes.get("/connections/list", findConnectionsController.execute);
+routes.patch("/connections", updateAdminIdController.execute);
 
 export { routes }

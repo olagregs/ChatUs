@@ -40,4 +40,37 @@ function contactUser(room) {
   });
 
   document.getElementById("chats").innerHTML += rendered;
+
+  const params = {
+    user_id: connection.user.id
+  }
+
+  socket.emit("admin_list_user_message", params, (messages) => {
+    const allMessagesClient = document.getElementById(`allMessages_${params.user_id}`);
+    const allMessagesAdmin = document.getElementById(`wrapper_admin_${params.user_id}`);
+
+    messages.forEach((message) => {
+      if (message.admin_id === null) {
+        const messageBox = document.createElement("div");
+
+        messageBox.className = "client";
+        messageBox.innerHTML += `<span class="client_message">${message.text}</span>`;
+        messageBox.innerHTML += `<span class="client_date">${dayjs(message.created_at).format(("DD/MM - HH:mm"))}</span>`;
+
+        allMessagesClient.appendChild(messageBox);
+      } else {
+        const messageBox = document.createElement("div");
+
+        messageBox.className = "admin";
+        messageBox.innerHTML += `<span class="admin_message">${message.text}</span>`;
+        messageBox.innerHTML += `<span class="admin_date">${dayjs(message.created_at).format(("DD/MM - HH:mm"))}</span>`;
+
+        allMessagesAdmin.appendChild(messageBox);
+      }
+    });
+  });
+}
+
+function sendMessage(id) {
+  const connection = allConnections.find(connection => connection.user_id === id);
 }
