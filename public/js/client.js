@@ -1,6 +1,8 @@
 document.querySelector("#start_chat").addEventListener('click', () => {
   const socket = io();
 
+  let room = null;
+
   const email = document.getElementById("email").value;
 
   const text = document.getElementById("text").value;
@@ -48,5 +50,42 @@ document.querySelector("#start_chat").addEventListener('click', () => {
         }
       });
     });
+  });
+
+  socket.on("admin_send_message_to_client", (message) => {
+    const { admin_id, text, created_at } = message;
+    room = admin_id;
+
+    const admin_message = document.getElementById("admin_template").innerHTML;
+
+    const rendered = Mustache.render(admin_message, {
+      email,
+      admin_message: text,
+      admin_date: dayjs(created_at).format("DD/MM - HH:mm")
+    });
+
+    document.getElementById("messages").innerHTML += rendered;
+  });
+
+  document.getElementById("send_message").addEventListener("click", () => {
+    const client_template = document.getElementById("client_template").innerHTML;
+    let text = document.getElementById("message");
+
+    const rendered = Mustache.render(client_template, {
+      email,
+      client_message: text.value,
+      client_date: dayjs().format("DD/MM - HH:mm")
+    });
+
+    document.getElementById("messages").innerHTML += rendered;
+
+    const params = {
+      admin_id: room,
+      text: text.value
+    }
+
+    socket.emit("client_send_message", params);
+
+    text.value = "";
   });
 });

@@ -9,6 +9,11 @@ import { CreateUsersService } from "../services/CreateUsersService";
 import { ListMessagesService } from "../services/ListMessagesService";
 import { UpdateSocketIdService } from "../services/UpdateSocketIdService";
 
+interface Iparams {
+  admin_id: string,
+  text: string
+}
+
 io.on("connect", socket => {
   const usersRepository = getCustomRepository(UsersRepository);
   const connectionsRepository = getCustomRepository(ConnectionsRepository);
@@ -60,5 +65,21 @@ io.on("connect", socket => {
     const messages = await listMessagesService.list(user_id);
 
     socket.emit("client_list_all_messages", messages);
+
+    socket.on("client_send_message", async (params) => {
+      const { admin_id, text } = params as Iparams;
+
+      const { created_at } = await createMessagesService.create({
+        user_id,
+        text
+      });
+
+      const messasge = {
+        text,
+        created_at
+      }
+
+      io.to(admin_id).emit("client_send_to_admin", messasge);
+    });
   });
 });
