@@ -71,6 +71,10 @@ document.querySelector("#start_chat").addEventListener('click', () => {
     const client_template = document.getElementById("client_template").innerHTML;
     let text = document.getElementById("message");
 
+    if (text.value == "") {
+      return 0;
+    }
+
     const rendered = Mustache.render(client_template, {
       email,
       client_message: text.value,

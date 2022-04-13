@@ -6,6 +6,7 @@ import { UsersRepository } from "../repositories/UsersRepository";
 import { CreateConnectionsService } from "../services/CreateConnectionsService";
 import { CreateMessagesService } from "../services/CreateMessagesService";
 import { CreateUsersService } from "../services/CreateUsersService";
+import { FindConnectionsService } from "../services/FindConnectionsService";
 import { ListMessagesService } from "../services/ListMessagesService";
 import { UpdateSocketIdService } from "../services/UpdateSocketIdService";
 
@@ -14,7 +15,7 @@ interface Iparams {
   text: string
 }
 
-io.on("connect", socket => {
+io.on("connect", async (socket) => {
   const usersRepository = getCustomRepository(UsersRepository);
   const connectionsRepository = getCustomRepository(ConnectionsRepository);
 
@@ -23,6 +24,7 @@ io.on("connect", socket => {
   const updateSocketIdService = new UpdateSocketIdService();
   const createMessagesService = new CreateMessagesService();
   const listMessagesService = new ListMessagesService();
+  const findConnectionsService = new FindConnectionsService();
 
   socket.on("first_access", async (params) => {
     let user_id = null;
@@ -64,6 +66,10 @@ io.on("connect", socket => {
 
     const messages = await listMessagesService.list(user_id);
 
+    const connections = await findConnectionsService.find();
+
+    io.emit("connections_to_attend", connections);
+
     socket.emit("client_list_all_messages", messages);
 
     socket.on("client_send_message", async (params) => {
@@ -76,7 +82,8 @@ io.on("connect", socket => {
 
       const messasge = {
         text,
-        created_at
+        created_at,
+        user_id
       }
 
       io.to(admin_id).emit("client_send_to_admin", messasge);

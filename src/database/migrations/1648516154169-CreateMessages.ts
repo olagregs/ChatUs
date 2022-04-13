@@ -22,7 +22,8 @@ export class CreateMessages1648516154169 implements MigrationInterface {
         },
         {
           name: "text",
-          type: "string"
+          type: "string",
+          isNullable: false
         },
         {
           name: "created_at",

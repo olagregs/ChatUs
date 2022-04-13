@@ -47,7 +47,6 @@ function contactUser(room) {
 
   socket.emit("admin_list_user_message", params, (messages) => {
     const allMessagesClient = document.getElementById(`allMessages_${params.user_id}`);
-    // const allMessagesAdmin = document.getElementById(`wrapper_admin_${params.user_id}`);
 
     messages.forEach((message) => {
       if (message.admin_id === null) {
@@ -78,6 +77,10 @@ function sendMessage(id) {
   let text = document.getElementById(`send_message_${id}`);
   const messageBox = document.createElement("div");
 
+  if (text.value == "") {
+    return 0;
+  }
+
   messageBox.className = "admin";
   messageBox.innerHTML += `<span class="admin_message">${text.value}</span>`;
   messageBox.innerHTML += `<span class="admin_date">${dayjs().format("DD/MM - HH:mm")}</span>`;
@@ -96,5 +99,14 @@ function sendMessage(id) {
 }
 
 socket.on("client_send_to_admin", (params) => {
-  console.log(params);
+  const { created_at, text, user_id } = params;
+
+  const allMessagesAdmin = document.getElementById(`allMessages_${user_id}`);
+  const messageBox = document.createElement("div");
+
+  messageBox.className = "client";
+  messageBox.innerHTML += `<span class="client_message">${text}</span>`;
+  messageBox.innerHTML += `<span class="client_date">${dayjs(created_at).format("DD/MM HH:mm")}</span>`;
+
+  allMessagesAdmin.appendChild(messageBox);
 });

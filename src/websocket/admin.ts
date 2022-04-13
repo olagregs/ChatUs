@@ -2,7 +2,6 @@ import { io } from "../http";
 import { CreateMessagesService } from "../services/CreateMessagesService";
 import { FindConnectionsService } from "../services/FindConnectionsService";
 import { ListMessagesService } from "../services/ListMessagesService";
-import { UpdateAdminIdService } from "../services/UpdateAdminIdService";
 
 interface Iparams {
   user_id: string,

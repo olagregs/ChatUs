@@ -17,7 +17,7 @@
   <div class="wrapper wrapper_users">
     <div class="users_wrapper">
       <div class="users_wrapper_header">
-        <span id="connections1">Atendimentos</span>
+        <span id="connections">Atendimentos</span>
       </div>
 
       <div class=" users_wrapper_body">
@@ -44,12 +44,10 @@
         </div>
       </div>
 
-      <div class="chat_template_body" id="allMessages_{{id}}">
-        <!-- <div class="wrapper_admin" id="wrapper_admin_{{id}}"></div> -->
-      </div>
+      <div class="chat_template_body" id="allMessages_{{id}}"></div>
 
       <div class="chat_template_footer">
-        <input type="text" id="send_message_{{id}}" placeholder="Digite sua mensagem..." />
+        <input type="text" id="send_message_{{id}}" placeholder="Digite sua mensagem..." required />
         <button id="send_message" onclick="sendMessage('{{id}}')">Enviar</button>
       </div>
     </div>
